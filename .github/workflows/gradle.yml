@@ -32,7 +32,7 @@ jobs:
         uses: nanasess/setup-chromedriver@v2.2.2
 
       - name: Run Tests
-        run: ./gradlew cucumber
+        run: ./gradlew Test
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4

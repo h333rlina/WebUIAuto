@@ -10,24 +10,19 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    By usernameField = By.id("username");
-    By passwordField = By.id("password");
-    By loginButton   = By.id("loginBtn");
-    By errorMessage  = By.id("error");
-
     public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+        driver.findElement(By.id("user-name")).sendKeys(username); // ✅
     }
 
     public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+        driver.findElement(By.id("password")).sendKeys(password); // ✅
     }
 
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        driver.findElement(By.id("login-button")).click(); // ✅
     }
 
     public String getErrorMessage() {
-        return driver.findElement(errorMessage).getText();
+        return driver.findElement(By.cssSelector("h3[data-test='error']")).getText(); // ✅ cocok dengan error message
     }
 }

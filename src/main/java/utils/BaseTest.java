@@ -8,7 +8,6 @@ public class BaseTest {
 
     public WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
             driver = new ChromeDriver();
         }
         return driver;

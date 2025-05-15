@@ -2,16 +2,20 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseTest {
     private static WebDriver driver;
 
     public WebDriver getDriver() {
         if (driver == null) {
-            // Hapus pengaturan path chromedriver manual
-            // System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new"); // untuk Chrome versi terbaru
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
 
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
         }
         return driver;
     }

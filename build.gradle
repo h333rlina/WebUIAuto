@@ -21,3 +21,21 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task cucumberTest(type: Test) {
+    description = 'Run Cucumber tests'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+
+    include '**/*TestRunner*.class'
+
+
+    systemProperty 'cucumber.options', '--plugin html:target/cucumber-report.html'
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}

@@ -31,8 +31,8 @@ jobs:
       - name: Set up ChromeDriver
         uses: nanasess/setup-chromedriver@v2.2.2
 
-      - name: Run Tests
-        run: ./gradlew test
+      - name: Run Cucumber Tests
+        run: ./gradlew clean test
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4

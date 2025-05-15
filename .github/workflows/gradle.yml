@@ -32,13 +32,13 @@ jobs:
         uses: nanasess/setup-chromedriver@v2.2.2
 
       - name: Run Cucumber Tests
-        run: ./gradlew clean test
+        run: ./gradlew clean cucumberTest
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: build/reports
+          name: cucumber-report
+          path: target/cucumber-report.html
 
   dependency-submission:
     name: Dependency Submission
